@@ -1,1 +1,1 @@
-worker:yarn run
+worker:npm start

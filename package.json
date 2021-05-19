@@ -1,0 +1,13 @@
+{
+  "name": "password_generator_bot",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/NikitaKobzar345/password_generator_bot",
+  "author": "sexy_guy",
+  "license": "MIT",
+  "dependencies": {
+    "check-password-strength": "^2.0.3",
+    "dotenv": "^9.0.2",
+    "telegraf": "^4.3.0"
+  }
+}

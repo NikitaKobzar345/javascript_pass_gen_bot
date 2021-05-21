@@ -1,4 +1,4 @@
-let token = "1815649513:AAEusDkh--A-ERWRJak4lLqIEX41BaaIqUE";
+
 let sumbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!№;%:?*()_+=";
 let toReplace = {
     a: "@",

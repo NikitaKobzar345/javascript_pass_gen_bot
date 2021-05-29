@@ -1,6 +1,5 @@
 require('dotenv').config();
 const { Telegraf, Markup } = require('telegraf');
-const utf8=require('utf8')
 const config=require('./config')
 const app = new Telegraf(process.env.BOT_TOKEN);
 
@@ -10,7 +9,7 @@ function generatePasswordHard(lenght) {
   for (let i = sep.length - 1; i > 0; i--) {
     k = Math.floor(Math.random() * (i + 1));
     result = sep[k];
-    sep[k] = sep[i];
+    sep[k] = sep[i]
     sep[i] = result;
   }
 

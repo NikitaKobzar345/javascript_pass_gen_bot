@@ -80,7 +80,7 @@ let text=ctx.message.text
           additional[Math.floor(Math.random() * additional.length)]
         );
       }
-      return text.join("");
+      return [...new Set(text)].join('');
     }
       ctx.reply(`Ваш пароль:  ${genAPassFromKeyWords(text)}`);
     

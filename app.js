@@ -54,35 +54,43 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
  app.on('text', (ctx) => {
 
 let text=ctx.message.text
+      
+    if(text.length >= 20){
+      ctx.reply('Слишком много букав')
+    } else {
 
-
-    function genAPassFromKeyWords(text) {
-      for (const [key, value] of Object.entries(config.toReplace)) {
-        text = text.replace(key, value);
-      }
-  
-      text = text
-        .split("")
-        .reduce(
-          (a, c) =>
-            a +
-           ((Math.floor(Math.random() * text.length)) ? c.toUpperCase() : c.toLowerCase()),
-          ""
-        );
-  
-      text = text.split("");
-  
-      for (i = 0; i < Math.floor(text.length / 3); i++) {
-        let additional = "*$%#";
-        text.splice(
-          Math.floor(Math.random() * text.length),
-          0,
-          additional[Math.floor(Math.random() * additional.length)]
-        );
-      }
-      return [...new Set(text)].join('');
-    }
-      ctx.reply(`Ваш пароль:  ${genAPassFromKeyWords(text)}`);
+      function genAPassFromKeyWords(text) {
+        for (const [key, value] of Object.entries(config.toReplace)) {
+          text = text.replace(key, value);
+        }
+      
+        text = text
+          .split("")
+          .reduce(
+            (a, c) =>
+              a +
+             ((Math.floor(Math.random() * text.length)) ? c.toUpperCase() : c.toLowerCase()),
+            ""
+          );
     
+        text = text.split("");
+  
+        let additional='$@#?*';
+  
+        for (i = 0; i < Math.floor(text.length / 3 ); i++) {
+          
+          text.splice(
+            Math.floor(Math.random() * text.length),
+            0,
+            additional[Math.floor(Math.random() * additional.length)]
+          );
+        }
+  
+        return text.join('');
+  
+      }
+        ctx.reply(`Ваш пароль:  ${genAPassFromKeyWords(text)}`);
+    }
   })
+
 app.launch();

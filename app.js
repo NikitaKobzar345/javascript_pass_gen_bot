@@ -55,10 +55,6 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
 
 let text=ctx.message.text
       
-    if(text.length >= 20 ){
-      ctx.reply('Слишком много букав')
-    } else {
-
       function genAPassFromKeyWords(text) {
         for (const [key, value] of Object.entries(config.toReplace)) {
           text = text.replace(key, value);
@@ -90,7 +86,6 @@ let text=ctx.message.text
   
       }
         ctx.reply(`Ваш пароль:  ${genAPassFromKeyWords(text)}`);
-    }
   })
 
 app.launch();

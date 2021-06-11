@@ -55,7 +55,7 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
 
 let text=ctx.message.text
       
-    if(text.length >= 20){
+    if(text.length >= 20 && ctx.reply(text>0){
       ctx.reply('Слишком много букав')
     } else {
 

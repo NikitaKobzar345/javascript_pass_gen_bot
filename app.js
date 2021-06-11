@@ -54,7 +54,17 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
  app.on('text', (ctx) => {
 
 let text=ctx.message.text
-      
+let emoji=/[^ -\u2122]+ +| *[^ -\u2122]+/ug
+
+  if(emoji){
+    text.replace(emoji,'') 
+    ctx.reply('Я не поддерживаю эмодзи ')
+  }
+
+    if(text.length >= 30){
+      ctx.reply('Слишком много букав')
+    } else {
+
       function genAPassFromKeyWords(text) {
         for (const [key, value] of Object.entries(config.toReplace)) {
           text = text.replace(key, value);
@@ -86,6 +96,7 @@ let text=ctx.message.text
   
       }
         ctx.reply(`Ваш пароль:  ${genAPassFromKeyWords(text)}`);
+    }
   })
 
 app.launch();

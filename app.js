@@ -56,11 +56,12 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
 let text=ctx.message.text
 let emoji=/[^ -\u2122]+ +| *[^ -\u2122]+/ug
 
-  if(emoji){
-    text.replace(emoji,'') 
-    ctx.reply('Я не поддерживаю эмодзи ')
-  }
-
+   if(text.match(emoji)){
+      ctx.reply('Я не принимаю эмодзи')
+      return
+    }
+   
+   
     if(text.length >= 30){
       ctx.reply('Слишком много букав')
     } else {

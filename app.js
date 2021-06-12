@@ -60,9 +60,9 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
 let text=ctx.message.text
 
 
-  if(text.match(emoji)){
-  ctx.reply('Я не принимаю эмодзи')
-  return
+    if(text.match(emoji)){
+    ctx.reply('Я не принимаю эмодзи')
+    return
 }
     if(text.length >= 30){
       ctx.reply('Слишком много букав')

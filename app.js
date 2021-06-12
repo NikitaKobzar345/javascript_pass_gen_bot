@@ -6,19 +6,13 @@ const app = new Telegraf(process.env.BOT_TOKEN);
 
 const emoji = emojiRegex()
 
-function generatePasswordHard(lenght) {
-  let sep = config.sumbols.split("");
-  let k, result;
-  
-  for (let i = sep.length - 1; i > 0; i--) {
-
-    k = Math.floor(Math.random() * (i + 1));
-    result = sep[k];
-    sep[k] = sep[i];
-    sep[i] = result;
-
+function generatePassword(length){
+  let chars=config.sumbols;
+  let password='';
+  for(let i=0;i<=length;i++){
+    password+=chars[Math.floor(Math.random()* chars.length )]
   }
-  return sep.slice(0, lenght).join("");
+  return password
 }
 
 

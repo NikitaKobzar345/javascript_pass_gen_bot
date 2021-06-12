@@ -1,7 +1,11 @@
 require('dotenv').config();
 const { Telegraf, Markup } = require('telegraf');
+const emojiRegex=require('emoji-regex/RGI_Emoji.js')
 const config=require('./config')
 const app = new Telegraf(process.env.BOT_TOKEN);
+
+const emoji = emojiRegex()
+
 
 function generatePassword(lenght) {
   let sep = config.sumbols.split("");
@@ -54,7 +58,7 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
  app.on('text', (ctx) => {
 
 let text=ctx.message.text
-let emoji=/[^ -\u2122]+ +| *[^ -\u2122]+/ug
+
 
    if(text.match(emoji)){
       ctx.reply('Я не принимаю эмодзи')

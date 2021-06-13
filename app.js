@@ -59,6 +59,10 @@ let text=ctx.message.text
   return
 }
 
+ if(text!=='Сгенерировать из ключевых слов'){
+  return
+}  
+   
   function genAPassFromKeyWords(text) {
     for (const [key, value] of Object.entries(config.toReplace)) {
       text = text.replace(key, value);

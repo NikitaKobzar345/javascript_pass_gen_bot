@@ -58,10 +58,6 @@ let text=ctx.message.text
   ctx.reply('Я не принимаю эмодзи')
   return
 }
-
- if(text!=='Сгенерировать из ключевых слов'){
-  return
-}  
    
   function genAPassFromKeyWords(text) {
     for (const [key, value] of Object.entries(config.toReplace)) {

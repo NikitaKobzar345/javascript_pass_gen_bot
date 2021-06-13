@@ -91,9 +91,8 @@ let text=ctx.message.text
   if(text.length >= 30){
     ctx.reply('Слишком много символов')
 
-} else {
+} else 
     ctx.reply(`Ваш пароль:  ${genAPassFromKeyWords(text)}`)
-   }
 })
 
 app.launch();

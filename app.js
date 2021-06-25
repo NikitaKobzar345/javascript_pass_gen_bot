@@ -40,10 +40,10 @@ app.start((ctx) =>
 
 
 app.hears("Сгенерировать сложный пароль",(ctx)=>
-  ctx.reply(`Ваш пароль:  ${generatePassword(20)}`))
+  ctx.reply(`Ваш пароль:  ${generatePassword(19)}`))
 
 app.hears("Сгенерировать простой пароль", (ctx) =>
-  ctx.reply(`Ваш пароль:  ${generatePassword(8)}`)
+  ctx.reply(`Ваш пароль:  ${generatePassword(11)}`)
 );
 
 app.hears("Сгенерировать из ключевых слов", (ctx) =>

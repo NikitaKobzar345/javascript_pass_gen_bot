@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Telegraf, Markup } = require('telegraf');
 const emojiRegex=require('emoji-regex/RGI_Emoji.js')
-const config=require('./config')
+const config=require('./config');
 const app = new Telegraf(process.env.BOT_TOKEN);
 
 const emoji = emojiRegex()
@@ -12,7 +12,7 @@ function generatePassword(length){
   for(let i=0;i<=length;i++){
     password+=chars[Math.floor(Math.random()* chars.length )]
   }
-  return password
+  return password;
 }
 
 
@@ -22,7 +22,7 @@ app.start((ctx) =>
 Приветствую, ${ctx.message.from.first_name}!
 Хочешь сгенерировать надежный пароль? Тогда ты по адресу. Нажимай на клавишу "Сгенерировать сложный пароль" 
 или "Сгенерировать простой пароль" и я выведу его!)
-Также я могу сгненерировать тебе пароль исходя из ключевых слов которые ты введешь
+Также я могу сгненерировать тебе пароль исходя из ключевых слов которые ты введешь.
 
 Например: 
 вход-cucushka,curit,voditel
@@ -52,47 +52,47 @@ app.hears("Сгенерировать из ключевых слов", (ctx) =>
 
  app.on('text', (ctx) => {
 
-let text=ctx.message.text
+let text=ctx.message.text;
 
   if(text.match(emoji)){
   ctx.reply('Я не принимаю эмодзи')
   return
 }
-   
-  function genAPassFromKeyWords(text) {
-    for (const [key, value] of Object.entries(config.toReplace)) {
-      text = text.replace(key, value);
-  }
 
+  function genAPassFromKeyWords(text) {
+    
     text = text
       .split("")
       .reduce(
         (a, c) =>
           a +
-        ((Math.floor(Math.random() * text.length)) ? c.toUpperCase() : c.toLowerCase()),
+        ((Math.floor(Math.random() * text.length > 5 )) ? c.toUpperCase() : c.toLowerCase()),
         ""
       );
+   
+   text = text.split("");
 
-    text = text.split("");
-
-    let additional='$@#?*';
-
-    for (i = 0; i < Math.floor(text.length / 3 ); i++) {
+    let additional='!@#$%^&~';
+    
+   for (i = 0; i < Math.floor(text.length / 3); i++) {
       
       text.splice(
         Math.floor(Math.random() * text.length),
         0,
         additional[Math.floor(Math.random() * additional.length)]
-      );
-    }
-    return text.join('');
-}
 
+      );       
+  }
+
+  return text.join('');
+
+}
   if(text.length >= 30){
     ctx.reply('Слишком много символов')
-
-} else 
+  }
+  else
     ctx.reply(`Ваш пароль:  ${genAPassFromKeyWords(text)}`)
+ 
 })
 
 app.launch();

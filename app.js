@@ -87,7 +87,7 @@ let text=ctx.message.text;
   return text.join('');
 
 }
-  if(text.length >= 30){
+  if(text.length >= 40){
     ctx.reply('Слишком много символов')
   }
   else

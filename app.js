@@ -72,7 +72,7 @@ let text=ctx.message.text;
    
    text = text.split("");
 
-    let additional='!@#$%^&~';
+    let additional='!@#$%^&*(){}[]=<>/,.';
     
    for (i = 0; i < Math.floor(text.length / 3); i++) {
       
